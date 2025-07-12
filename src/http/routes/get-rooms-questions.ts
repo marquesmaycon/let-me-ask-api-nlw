@@ -32,7 +32,7 @@ export const getRoomsQuestions: FastifyPluginCallbackZod = (app) => {
         throw new Error('Failed to get questions')
       }
 
-      return res.status(200).send({ questions })
+      return res.status(200).send(questions)
     }
   )
 }
