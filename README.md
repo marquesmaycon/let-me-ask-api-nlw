@@ -1,180 +1,81 @@
-# NLW Agents - Backend API
+# Let Me Ask API NLW
 
-Este projeto foi desenvolvido durante o evento **NLW (Next Level Week)** da [Rocketseat](https://rocketseat.com.br/), focando na criação de uma API robusta para gerenciamento de agentes inteligentes, salas e perguntas.
+API do projeto Let Me Ask, criada com Fastify, Drizzle ORM, PostgreSQL e recursos de IA generativa.
 
-## 🚀 Tecnologias Utilizadas
+![Fastify](https://img.shields.io/badge/Fastify-20232A?style=flat-square)
+![TypeScript](https://img.shields.io/badge/TypeScript-20232A?style=flat-square)
+![Drizzle ORM](https://img.shields.io/badge/Drizzle_ORM-20232A?style=flat-square)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-20232A?style=flat-square)
+![Google GenAI](https://img.shields.io/badge/Google_GenAI-20232A?style=flat-square)
+![Zod](https://img.shields.io/badge/Zod-20232A?style=flat-square)
 
-### Core Framework
-- **[Fastify](https://fastify.dev/)** - Framework web ultra-rápido e eficiente para Node.js
-- **[fastify-type-provider-zod](https://github.com/turkerdev/fastify-type-provider-zod)** - Provider de tipagem para Fastify usando Zod
-- **[@fastify/cors](https://github.com/fastify/fastify-cors)** - Plugin CORS para Fastify
+## Demo
 
-### Banco de Dados & ORM
-- **[PostgreSQL](https://www.postgresql.org/)** - Banco de dados relacional
-- **[pgvector](https://github.com/pgvector/pgvector)** - Extensão PostgreSQL para vetores (Docker image: `pgvector/pgvector:pg17`)
-- **[Drizzle ORM](https://orm.drizzle.team/)** - ORM type-safe para TypeScript
-- **[drizzle-kit](https://orm.drizzle.team/kit-docs/overview)** - CLI para migrations e gerenciamento do schema
-- **[postgres](https://github.com/porsager/postgres)** - Driver PostgreSQL para Node.js
+Este projeto nao possui demo publica ativa no momento.
 
-### Validação e Tipagem
-- **[Zod](https://zod.dev/)** - Schema validation e type inference
-- **[TypeScript](https://www.typescriptlang.org/)** - Superset tipado do JavaScript
+## Sobre
 
-### Qualidade de Código
-- **[Biome](https://biomejs.dev/)** - Linter e formatter ultra-rápido
-- **[Ultracite](https://github.com/dimitarnestorov/ultracite)** - Configuração de regras de código avançadas
+API do projeto Let Me Ask, criada com Fastify, Drizzle ORM, PostgreSQL e recursos de IA generativa.
 
-### Containerização
-- **[Docker](https://www.docker.com/)** & **Docker Compose** - Containerização do banco de dados
+O objetivo deste repositorio e demonstrar uma implementacao clara, organizada e facil de avaliar, com documentacao objetiva para recrutadores e pessoas tecnicas entenderem rapidamente o contexto do projeto.
 
-## 🏗️ Arquitetura e Padrões
+## Funcionalidades
 
-### Estrutura de Pastas
-```
-src/
-├── db/                    # Configurações de banco de dados
-│   ├── connection.ts      # Conexão com PostgreSQL
-│   ├── seed.ts           # Scripts de seeding
-│   ├── migrations/       # Migrations do Drizzle
-│   └── schema/           # Schemas das tabelas
-│       ├── index.ts
-│       ├── questions.ts
-│       └── rooms.ts
-├── http/
-│   └── routes/           # Rotas da API
-│       ├── create-question.ts
-│       ├── create-room.ts
-│       ├── get-rooms-questions.ts
-│       └── get-rooms.ts
-├── env.ts                # Validação de variáveis de ambiente
-└── server.ts             # Configuração principal do servidor
-```
+- API para salas e perguntas.
+- Upload multipart.
+- Integracao com IA.
+- Migrations com Drizzle.
+- Seed de dados.
+- Validação com Zod.
 
-### Padrões Implementados
-- **Type Safety**: Uso extensivo do TypeScript com Zod para validação runtime
-- **Plugin Architecture**: Utilização do sistema de plugins do Fastify
-- **Schema-First**: Definição de schemas usando Drizzle ORM
-- **Environment Validation**: Validação rigorosa de variáveis de ambiente
-- **Code Quality**: Linting e formatting automatizados com Biome
+## Stack
 
-## ⚙️ Setup e Configuração
+- **Fastify**
+- **TypeScript**
+- **Drizzle ORM**
+- **PostgreSQL**
+- **Google GenAI**
+- **Zod**
 
-### Pré-requisitos
-- Node.js 20+ 
-- Docker e Docker Compose
-- PostgreSQL (via Docker)
+## Como executar
 
-### 1. Clone o Repositório
 ```bash
-git clone <repository-url>
-cd nlw-agents/server
-```
-
-### 2. Instalação das Dependências
-```bash
+git clone https://github.com/marquesmaycon/let-me-ask-api-nlw.git
+cd let-me-ask-api-nlw
 npm install
-```
-
-### 3. Configuração do Ambiente
-Crie um arquivo `.env` na raiz do projeto:
-```env
-PORT=3333
-DATABASE_URL=postgresql://docker:docker@localhost:5432/agents
-```
-
-### 4. Subir o Banco de Dados (Docker)
-```bash
-docker-compose up -d
-```
-
-### 5. Executar Migrations
-```bash
-npm run db:migrate
-```
-
-### 6. Executar Seed (Opcional)
-```bash
-npm run db:seed
-```
-
-## 🔧 Scripts Disponíveis
-
-```bash
-# Desenvolvimento (watch mode)
 npm run dev
-
-# Produção
-npm start
-
-# Banco de Dados
-npm run db:generate    # Gerar migrations
-npm run db:migrate     # Executar migrations
-npm run db:seed        # Executar seed
-npm run db:studio      # Abrir Drizzle Studio
 ```
 
-## 📡 API Endpoints
+## Scripts disponiveis
 
-A API estará disponível em `http://localhost:3333` com os seguintes endpoints:
+- `npm run test`
+- `npm run start`
+- `npm run dev`
+- `npm run db:seed`
+- `npm run db:generate`
+- `npm run db:migrate`
+- `npm run db:studio`
 
-- `GET /health` - Health check
-- `GET /rooms` - Listar salas
-- `POST /rooms` - Criar nova sala
-- `GET /rooms/:id/questions` - Listar perguntas de uma sala
-- `POST /rooms/:id/questions` - Criar pergunta em uma sala
+## Destaques tecnicos
 
-## 🗄️ Schema do Banco de Dados
+- Backend moderno e enxuto.
+- Integra IA ao fluxo de Q&A.
+- Boa dupla com o frontend Let Me Ask.
 
-### Tabela: rooms
-```sql
-CREATE TABLE rooms (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  description TEXT,
-  created_at TIMESTAMP DEFAULT NOW() NOT NULL
-);
-```
+## Repositorio
 
-### Tabela: questions
-```sql
-CREATE TABLE questions (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  room_id UUID REFERENCES rooms(id) NOT NULL,
-  question TEXT NOT NULL,
-  answer TEXT,
-  created_at TIMESTAMP DEFAULT NOW() NOT NULL
-);
-```
-
-## 🐳 Docker
-
-O projeto utiliza Docker Compose para subir uma instância do PostgreSQL com a extensão pgvector:
-
-```yaml
-services:
-  nlw-agents-pg:
-    image: pgvector/pgvector:pg17
-    environment:
-      POSTGRES_USER: docker
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: agents
-    ports:
-      - "5432:5432"
-```
-
-## 🔍 Monitoramento
-
-- **Drizzle Studio**: Execute `npm run db:studio` para abrir uma interface visual do banco de dados
-- **Health Check**: Endpoint `/health` para verificar status da API
-
-## 📝 Convenções de Código
-
-O projeto utiliza configurações rigorosas de linting através do Biome e Ultracite, seguindo:
-- Padrões de acessibilidade (ARIA, semântica HTML)
-- Best practices do TypeScript/JavaScript
-- Convenções de naming e estrutura
-- Regras de performance e segurança
+[Acessar repositorio no GitHub](https://github.com/marquesmaycon/let-me-ask-api-nlw)
 
 ---
 
-**Desenvolvido durante o NLW da Rocketseat** 🚀
+<div align="center">
+  <img src="https://github.com/marquesmaycon.png" width="100px" style="border-radius: 50%"/>
+  <br/>
+  <strong>Maycon Marques</strong>
+  <br/>
+  <br/>
+
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mayconhenrique/)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white)](https://github.com/marquesmaycon)
+  [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:mayconmarquesh@gmail.com)
+</div>
